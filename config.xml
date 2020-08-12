@@ -22,7 +22,7 @@
    <icon src="mipmap-256.png" width="256" height="256" density="xxxhdpi" />
    <icon src="mipmap-128.png" width="128" height="128" density="xhdpi" />
 
-    <preference name="android-targetSdkVersion" value="23" />
+    <preference name="android-targetSdkVersion" value="28" />
     <preference name = "permissions" value = "none"/>
 
     <allow-intent href="http://*/*" />
