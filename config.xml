@@ -1,29 +1,11 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
-
-<widget xmlns = "http://www.w3.org/ns/widgets"
-   xmlns:cdv="http://cordova.apache.org/ns/1.0" id = "com.chrikinex.smarthome" version = "1.0.1">
-
-   <name>Chrikinex Smart</name>
-
-   <description>
-      Chrikinex Smart Switches
-   </description>
-
-   <author href = "http://chrikinex.com" email = "info@chrikinex.com">
-      Timm A
-   </author>
-
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget id="com.chrikinex.smart" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Chrikinex Smart</name>
+    <description>Example of building a wi-fi remote control with HTML5/JQuery/Onsen UI and Phonegap. It will be used to control IoT devices, such as NodeMCU and compatibles</description>
+    <author href="http://www.chrikinex.com" email="info@chrikinex.com">Timm A</author>
+    
     <content src="index.html" />
 
-    <access origin="*" />
-
-
-   <icon src="mipmap-256.png" width="256" height="256" density="xxxhdpi" />
-   <icon src="mipmap-128.png" width="128" height="128" density="xhdpi" />
-
-    <preference name="android-targetSdkVersion" value="28" />
-    <preference name = "permissions" value = "none"/>
 
     <allow-intent href="http://*/*" />
 
@@ -37,42 +19,29 @@
 
     <allow-intent href="geo:*" />
 
-    <platform name="android">
+    <icon src="mipmap-256.png" width="256" height="256" density="xxxhdpi" />
+    <icon src="mipmap-128.png" width="128" height="128" density="xhdpi" />
 
-
-         <preference name="deployment-target" value="10.0" />
-         <preference name="android-minSdkVersion" value="19" />
-
-        <allow-intent href="market:*" />
-
-    </platform>
-
-    <platform name="ios">
-
-        <allow-intent href="itms:*" />
-
-        <allow-intent href="itms-apps:*" />
-
-        <preference name="BackupWebStorage" value="none" />
-
-    </platform>
-
+    <preference name="android-targetSdkVersion" value="24" />
+  
 
     <preference name="orientation" value="" />
     <preference name="fullscreen" value="false" />
     <preference name="DisallowOverscroll" value="true" />
 
-    <config-file parent="UIStatusBarHidden" platform="ios" target="*-Info.plist"><true/></config-file>
+    <config-file parent="UIStatusBarHidden" platform="ios" tet="*-Info.plist"><true/></config-file>
     <config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios" target="*-Info.plist"><false/></config-file>
 
-
-    <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
-
-    <plugin name="cordova-plugin-console" spec="~1.0.1" />
-
-    <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
-
+    <preference name="deployment-target" value="10.0" />
+    <preference name="android-minSdkVersion" value="14" />
+    <access origin="*" />
+   
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    
     <engine name="ios" />
     <engine name="android" />
-
 </widget>
+
+
+
+
