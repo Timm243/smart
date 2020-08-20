@@ -442,7 +442,7 @@
 
         for (let index = 0 ; index < 17; index++) {
             //const element = array[index];
-             let snItem = 'slo' + index;
+             var snItem = 'slo' + index;
             $('#' + snItem).hide();
 
         }
@@ -492,8 +492,8 @@
 
           $(document).on('click', '.location-rename-button', function(e){
               e.preventDefault();
-              let id = $(this).attr('data-id');
-              let namee = $(this).attr('name');
+              var id = $(this).attr('data-id');
+              var namee = $(this).attr('name');
               anylocname = namee;
               $('#renamelocForm').attr('renloc-id', id);
               $('#renamelocForm').attr('renloc-name', namee);
@@ -507,8 +507,8 @@
 
 
           $(document).on('click', '.switch-detail-button', function(){
-              let id = $(this).attr('data-id');
-              let namee = $(this).attr('name');
+              var id = $(this).attr('data-id');
+              var namee = $(this).attr('name');
               loadSwitches(id, namee);
           });
 
@@ -516,9 +516,9 @@
 
           $(document).on('click', '.switch-rename-button', function(e){
               e.preventDefault();
-              let id = $(this).attr('data-id');
-              let namee = $(this).attr('name');
-              let locat = $(this).attr('location');
+              var id = $(this).attr('data-id');
+              var namee = $(this).attr('name');
+              var ocat = $(this).attr('location');
               anyswtname = namee;
               //alert(id + ' ' + namee + ' ' + locat);
               $('#renameswtForm').attr('renswt-id', id);
@@ -575,7 +575,7 @@
 
               $('#add_submit').on('click', function (e) {
                 e.preventDefault();
-                for(let i=1; i<17; i++){
+                for(var i=1; i<17; i++){
                             if($('#slo' + parseInt(i)).is(':hidden')){
                               $('#slo' + parseInt(i)).show();
                               showSwitches();
@@ -594,11 +594,11 @@
 
             $('#edit_submit').on('click', function (e) {
                 e.preventDefault();
-                    let switch_nos = 1;  // boolen variable 1 for all roker swt named, 0 for none
-                    let editswnos = $('#m_switches').val();   //for number swt desire: 1 or 3 or n
-                    let editvalue = $('#edit_loc_swt').val(); // for loc name
+                    var switch_nos = 1;  // boolen variable 1 for all roker swt named, 0 for none
+                    var editswnos = $('#m_switches').val();   //for number swt desire: 1 or 3 or n
+                    var editvalue = $('#edit_loc_swt').val(); // for loc name
               if (editswnos != '') {
-                    for (let i=1; i<=parseInt(editswnos); i++){ //loop thru number of roker switch chosen
+                    for (var i=1; i<=parseInt(editswnos); i++){ //loop thru number of roker switch chosen
                       console.log('switch log' + i);
                       if (($('#swt' + i).val()) == null ){       // if name not assigned on any of the chosen then all is null
                         switch_nos = 0;
@@ -613,8 +613,8 @@
                               console.log(result);
                               if(result == (p_location.toString() + ':' + editvalue.toString())){ //writing loc name is success then
                               // alert(result);
-                                let sw_iptxt;                     // proceed to write switches name into dbase
-                                for (let i=1; i<=parseInt(editswnos); i++){
+                                var sw_iptxt;                     // proceed to write switches name into dbase
+                                for (var i=1; i<=parseInt(editswnos); i++){
                                   sw_iptxt = $('#swt' + i).val();
                                   if (p_location.length == 16) {
                                         //console.log('x ,' + p_location.length);
@@ -642,7 +642,7 @@
                                       }, 50);
                                   }
                                 }
-                                let locnumber= p_location.toString().substr(14);
+                                var locnumber= p_location.toString().substr(14);
                                 $('.config_loc_swt').hide();
                                 $('#add_settings').show();
                                 $('#loc' + parseInt(locnumber)).text(editvalue.toString());
@@ -785,7 +785,7 @@
                                  //$.ajax({url: '/esp8266swtcSIMU16virgin3/data/esp8266swt20now1200.php?readswtState=All State',
                                       success: function(result){
                                           // console.log(result);
-                                          let swtnLoc;
+                                          var swtnLoc;
                                           $.each(result.split(/[,]+/), function(index, line) {
                                               if ((line.length == 2) && (loctext == line.substr(0,1))){
                                                 //  console.log(line.substr(1));
@@ -804,15 +804,15 @@
                                   });
                                 }, 50);
 
-                                            let locTitle;
+                                            var locTitle;
                                         setTimeout(() => {
                                             $.ajax({url: 'http://' + urladdr + '/wtrdnamelocSPIFFS?readwriteloc=Smart Location' + ' ' + loctext,
                                            // $.ajax({url: '/esp8266swtcSIMU16virgin3/data/esp8266swt20now1200.php?readwriteloc=Smart Location' + ' ' + loctext,
                                                 success: function(result){
                                                   // console.log(result);
                                                     if(result != ''){
-                                                      let n = result.indexOf(':');
-                                                      let locTitle = result.substr(n+1);
+                                                      var n = result.indexOf(':');
+                                                      var locTitle = result.substr(n+1);
                                                       $('#loc_title').text('LOCATION : '+ locTitle);
                                                     }
                                                 }
@@ -833,12 +833,12 @@
 
                             $('input[name="rswitch"]').change(function() {
                                 // e.preventDefault();
-                                let chbox_id = $(this).attr('id');
+                                var chbox_id = $(this).attr('id');
                                     //$('#' + chbox_id).prop('checked') ? alert(chbox_id + ' is on') : alert(chbox_id + ' is off');
-                                let roc_s = chbox_id.substr(5);
+                                var roc_s = chbox_id.substr(5);
                                 // let a = '';
-                                let action;
-                                let ina;
+                                var action;
+                                var ina;
                                 if(locn.substr(0, 2) == 'A'){
                                     ina = location4SwtAction.substr(0, 1);
                                 }else{
@@ -936,10 +936,10 @@
                                 $.each(result.split(/[\n\r]+/), function(index, line) {
                                   if(result.length > 18) { // Smart Location 1:Sitting Room
                                   // console.log(result);
-                                    let n = line.indexOf(':');
-                                    //let r = line.indexOf('n');
-                                    let bootLoc = line.substr(14, ((n-13)-1)); // 13 indexof n lacation
-                                    let bootLocItem = line.substr(n+1);
+                                    var n = line.indexOf(':');
+                                    //var r = line.indexOf('n');
+                                    var bootLoc = line.substr(14, ((n-13)-1)); // 13 indexof n lacation
+                                    var bootLocItem = line.substr(n+1);
                                       $('#slo' + parseInt(bootLoc)).show();
                                       $('#loc' + parseInt(bootLoc)).text(bootLocItem);
                                   }
@@ -1012,7 +1012,7 @@
 
             $('#nav_swt_cod').click(function(e) {
                 e.preventDefault();
-                        let r = confirm('Are you sure you have configured switch address first?');
+                        var r = confirm('Are you sure you have configured switch address first?');
                                     if (r == true) {
                                       $('.config_swt_code').show();
                                       $('.config_swt_addr').hide();
@@ -1035,7 +1035,7 @@
 
               $('#check1').change(function(){
                   if($(this).prop('checked')){
-                        let r = confirm('Configure switch address ???');
+                        var r = confirm('Configure switch address ???');
                                     if (r == true) {
                                       $('#m_swt_addr').show();
                                     }
@@ -1143,9 +1143,9 @@
             e.preventDefault();
           // console.log("am here1");
           // alert("am here1");
-              let firstName = $('#registerFirstName').val(); // get firstName
-              let password = $('#registerPassword').val(); //get the pass from Form
-              let cPassword = $('#registerConfirmPassword').val(); //get the confirmPass from Form
+              var firstName = $('#registerFirstName').val(); // get firstName
+              var password = $('#registerPassword').val(); //get the pass from Form
+              var cPassword = $('#registerConfirmPassword').val(); //get the confirmPass from Form
             if( firstName != '' &&  password != ''  &&  cPassword != '' ){
               if(password ==  cPassword ){
                   //console.log("am here2");
@@ -1188,8 +1188,8 @@
           $('#loginForm').on('submit', function (e) {
             e.preventDefault();
           // console.log("we here");
-            let firstName = $('#loginName').val(); // get firstName
-            let password = $('#loginPassword').val(); //get the pass from Form
+            var firstName = $('#loginName').val(); // get firstName
+            var password = $('#loginPassword').val(); //get the pass from Form
             if( firstName != '' &&  password != ''){
                         $.ajax({url: 'http://' + urladdr + '/reglogusertoSPIFFS?regloguser=' + firstName + ':' + password,
                         //$.ajax({url: '/esp8266swtcSIMU16virgin3/data/esp8266swt20now1200.php?regloguser=' + firstName + ':' + password,
@@ -1360,8 +1360,8 @@
             }
 
         /*   accessPage();
-          let anylocname = '';
-          let anyswtname = '';
+          var anylocname = '';
+          var anyswtname = '';
           //navswitchdetails();*/
 
 
@@ -1392,8 +1392,8 @@
                     $.each(result.split(/[\n\r]+/), function(index, line) {
                       line.replace(/[\n\r]+/, "");
                       if((line.length > 18) && (line != "")){
-                          let loc_Name = line.indexOf(':');
-                          let bootLoc = line.substr(14, (loc_Name-14));
+                          var loc_Name = line.indexOf(':');
+                          var bootLoc = line.substr(14, (loc_Name-14));
                           var item = `
                             <tr class='text-align-center'>
                               <td>` + line.substr(loc_Name + 1) + `</td>
@@ -1425,9 +1425,9 @@
 
             $('#renamelocForm').submit(function (event) {
                     event.preventDefault();
-                    let newname = $('#locrenName').val();
-                    let id = $(this).attr('renloc-id');
-                    let namee = $(this).attr('renloc-name');
+                    var newname = $('#locrenName').val();
+                    var id = $(this).attr('renloc-id');
+                    var namee = $(this).attr('renloc-name');
                     if (id != undefined) {
                       //alert('am working  ' + id + ' ' + new_name);
                        $.ajax({url: 'http://' + urladdr + '/wtrdnamelocSPIFFS?readwriteloc=dezleze~Smart Location' + id + ':' + namee,
@@ -1483,10 +1483,10 @@
                         //if(line.length > 18) {
                         if ((line.substr(16,1) == 'x') && (('Smart Location' + ' ' + parseInt(locnum) + 'x') == (line.substr(0,17)))){
                         //if (('Smart Location' + ' ' + '2x').localeCompare(line.substr(0,17)) != false){
-                            let n = line.indexOf(':');
-                            let swtnId = line.substr(17, (n-17));
-                            let swtnLoc = line.substr(15, (n-16));
-                            let locswtItem = line.substr(n+1);
+                            var n = line.indexOf(':');
+                            var swtnId = line.substr(17, (n-17));
+                            var swtnLoc = line.substr(15, (n-16));
+                            var locswtItem = line.substr(n+1);
                             var item =`
                             <tr class='text-align-center'>
                               <td>` + locswtItem + `</td>
@@ -1501,10 +1501,10 @@
                             </tr>`;
                             $('#switch-table').append(item);
                         } else if (('Smart Location' + ' ' + parseInt(locnum)) == (line.substr(0,17))){
-                            let n = line.indexOf(':');
-                            let swtnId = line.substr(17, (n-17));
-                            let swtnLoc = line.substr(15, (n-16));
-                            let locswtItem = line.substr(n+1);
+                            var n = line.indexOf(':');
+                            var swtnId = line.substr(17, (n-17));
+                            var swtnLoc = line.substr(15, (n-16));
+                            var locswtItem = line.substr(n+1);
                             var item =`
                             <tr class='text-align-center'>
                               <td>` + locswtItem + `</td>
@@ -1536,11 +1536,11 @@
 
             $('#renameswtForm').submit(function (event) {
                     event.preventDefault();
-                    let newname = $('#swtrenName').val();
-                    let id = $(this).attr('renswt-id');
-                    let namee = $(this).attr('renswt-name');
-                    let locat = $(this).attr('renswt-locat');
-                    let swloc;
+                    var newname = $('#swtrenName').val();
+                    var id = $(this).attr('renswt-id');
+                    var namee = $(this).attr('renswt-name');
+                    var locat = $(this).attr('renswt-locat');
+                    var swloc;
                   if (id != undefined) {
                       if (locat.charAt(1) == 'x') {
                         swloc = locat.substr(0, 1);
