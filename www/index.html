@@ -754,7 +754,7 @@
                       function loadSwt(locnum){
                             showSwitches();
                             $('.switch_o_f') .show();
-                            for (let index = 1 ; index < 11; index++) {
+                            for (var index = 1 ; index < 11; index++) {
                               // $('#r_swt' + index).show();
                                 $('#rockr' + parseInt(index)).prop('checked', false);
                                 $('#r_swt' + index).hide();
