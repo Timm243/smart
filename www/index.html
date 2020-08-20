@@ -417,30 +417,17 @@
     <!-- ***** Footer Area Start ***** -->
 
     <!-- Jquery-2.2.4 JS -->
-    <script src="jquery-2.0.0.min.js"></script>
+    <script src="jquery-2.2.4.min.js"></script>
     <!-- <script src="bootstrap-switch.js"></script> -->
     <!-- Popper js -->
     <script src="popper.min.js"></script>
     <!-- Bootstrap-4 Beta JS -->
     <script src="bootstrap.min.js"></script>
     <script src="cordova.js"></script>
-<script>
- $(document).ready(function () {
-
-    document.addEventListener("deviceready",onDeviceReady,false);
- });
-
- function onDeviceReady(){
-              var urladdr;
-              var p_location ;
-              var location4SwtAction;
-              var locn;
-              //accessPage();
-              var anylocname = '';
-              var anyswtname = '';
-          //navswitchdetails();
-
-        for (let index = 0 ; index < 17; index++) {
+	
+	<script>
+	
+	for (let index = 0 ; index < 17; index++) {
             //const element = array[index];
              var snItem = 'slo' + index;
             $('#' + snItem).hide();
@@ -464,7 +451,25 @@
 
         $('#response').html("<div class='alert  text-center text-primary font-weight-bold'>Check if Wifi is available!!</div>");
 
+</script>      
+	      
+<script>
+ $(document).ready(function () {
 
+    document.addEventListener("deviceready",onDeviceReady,false);
+ });
+
+ function onDeviceReady(){
+              var urladdr;
+              var p_location ;
+              var location4SwtAction;
+              var locn;
+              //accessPage();
+              var anylocname = '';
+              var anyswtname = '';
+          //navswitchdetails();
+
+  
 
 
   /*  $(document).ready(function () {
